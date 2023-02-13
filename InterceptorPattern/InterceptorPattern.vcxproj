@@ -127,7 +127,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MovieRental\ChildrensPrice.cpp" />
+    <ClCompile Include="MovieRental\Customer.cpp" />
     <ClCompile Include="InterceptorPattern.cpp" />
+    <ClCompile Include="MovieRental\Movie.cpp" />
+    <ClCompile Include="MovieRental\NewReleasePrice.cpp" />
+    <ClCompile Include="MovieRental\Price.cpp" />
+    <ClCompile Include="MovieRental\RegularPrice.cpp" />
+    <ClCompile Include="MovieRental\Rental.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MovieRental\ChildrensPrice.h" />
+    <ClInclude Include="MovieRental\Customer.h" />
+    <ClInclude Include="MovieRental\Movie.h" />
+    <ClInclude Include="MovieRental\MovieType.h" />
+    <ClInclude Include="MovieRental\NewReleasePrice.h" />
+    <ClInclude Include="MovieRental\Price.h" />
+    <ClInclude Include="MovieRental\RegularPrice.h" />
+    <ClInclude Include="MovieRental\Rental.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
