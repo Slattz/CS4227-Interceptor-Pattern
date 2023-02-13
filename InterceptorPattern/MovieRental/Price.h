@@ -3,8 +3,8 @@
 
 class Price {
 public:
-	virtual MovieType GetPriceCode() const;
-	virtual double GetCharge(int daysRented) const;
+	virtual MovieType GetPriceCode() const = 0;
+	virtual double GetCharge(int daysRented) const = 0;
 
 	virtual int GetFrequentRenterPoints(int daysRented) const;
 };

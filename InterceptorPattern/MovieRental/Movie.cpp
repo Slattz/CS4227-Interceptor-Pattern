@@ -2,6 +2,7 @@
 #include "RegularPrice.h"
 #include "NewReleasePrice.h"
 #include "ChildrensPrice.h"
+#include <exception>
 
 Movie::Movie(const std::string& title, MovieType movieType) : m_title(title) {
 	SetPriceCode(movieType);
@@ -10,25 +11,25 @@ Movie::Movie(const std::string& title, MovieType movieType) : m_title(title) {
 void Movie::SetPriceCode(MovieType movieType) {
 	switch (movieType) {
 	case MovieType::Regular:
-		m_price = RegularPrice();
+		m_price = new RegularPrice();
 		break;
 
 	case MovieType::NewRelease:
-		m_price = NewReleasePrice();
+		m_price = new NewReleasePrice();
 		break;
 
 	case MovieType::Children:
-		m_price = ChildrensPrice();
+		m_price = new ChildrensPrice();
 		break;
 	
 	default:
-		m_price = Price();
+		throw std::exception("invalid price code");
 		break;
 	}
 }
 
 MovieType Movie::GetPriceCode() const {
-	return m_price.GetPriceCode();
+	return m_price->GetPriceCode();
 }
 
 std::string Movie::GetTitle() const {
@@ -36,9 +37,9 @@ std::string Movie::GetTitle() const {
 }
 
 double Movie::GetCharge(int daysRented) const {
-	return m_price.GetCharge(daysRented);
+	return m_price->GetCharge(daysRented);
 }
 
 int Movie::GetFrequentRenterPoints(int daysRented) const {
-	return m_price.GetFrequentRenterPoints(daysRented);
+	return m_price->GetFrequentRenterPoints(daysRented);
 }

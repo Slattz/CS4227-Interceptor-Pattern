@@ -15,7 +15,7 @@ public:
 
 private:
 	std::string m_title;
-	Price m_price;
+	Price* m_price;
 
 	void SetPriceCode(MovieType movieType);
 	MovieType GetPriceCode() const;
