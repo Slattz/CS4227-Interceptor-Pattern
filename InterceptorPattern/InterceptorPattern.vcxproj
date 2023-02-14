@@ -127,9 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Interceptor\Dispatcher.cpp" />
     <ClCompile Include="MovieRental\ChildrensPrice.cpp" />
     <ClCompile Include="MovieRental\Customer.cpp" />
-    <ClCompile Include="InterceptorPattern.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MovieRental\Movie.cpp" />
     <ClCompile Include="MovieRental\NewReleasePrice.cpp" />
     <ClCompile Include="MovieRental\Price.cpp" />
@@ -137,6 +138,8 @@
     <ClCompile Include="MovieRental\Rental.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Interceptor\Dispatcher.h" />
+    <ClInclude Include="Interceptor\IInterceptor.h" />
     <ClInclude Include="MovieRental\ChildrensPrice.h" />
     <ClInclude Include="MovieRental\Customer.h" />
     <ClInclude Include="MovieRental\Movie.h" />
