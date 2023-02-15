@@ -11,7 +11,6 @@ Framework::~Framework() {
 }
 
 void Framework::AddCustomer(std::shared_ptr<Customer>& customer) {
-	//std::cout << "Addr" << std::hex << &customer << std::endl;
 	CustomerContextObject object(customer);
 	CustomerDispatcher::GetInstance().DispatchOnCustomerAdded(object);
 	m_customers.push_back(customer);

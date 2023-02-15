@@ -7,7 +7,7 @@ void CustomerLogInterceptor::OnCustomerAdded(const CustomerContextObject& contex
 	std::string name = contextObject.GetName();
 	std::cout << "\tCustomer Added! Name: " << name << std::endl;
 	std::cout << "\tChanging Customer Name..." << std::endl;
-	contextObject.SetName(name);
 	name.append(" (Intercepted)");
+	contextObject.SetName(name);
 	std::cout << "\tCustomer Name Changed using Interceptor!" << std::endl;
 }
