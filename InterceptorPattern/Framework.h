@@ -10,7 +10,7 @@ public:
 	~Framework();
 
 	void AddCustomer(std::shared_ptr<Customer>& customer);
-	void AddCustomer(std::string& customer);
+	std::shared_ptr<Customer> AddCustomer(const std::string customer);
 
 private:
 	std::vector<std::shared_ptr<Customer>> m_customers;

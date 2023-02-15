@@ -39,7 +39,7 @@ bool CustomerDispatcher::Remove(ICustomerInterceptor* interceptor) {
 
 void CustomerDispatcher::DispatchOnCustomerAdded(const CustomerContextObject& contextObject) {
 	if (!m_interceptors.empty()) {
-		std::vector<std::shared_ptr<ICustomerInterceptor>> cloned;
+		std::vector<ICustomerInterceptor*> cloned;
 
 		{
 			const std::lock_guard<std::mutex> lock(m_mutex);
