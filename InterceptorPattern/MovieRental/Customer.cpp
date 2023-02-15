@@ -1,9 +1,13 @@
 #include "Customer.h"
 
-Customer::Customer(std::string name) : m_name(name) { }
+Customer::Customer(const std::string& name) : m_name(name) { }
 
 std::string Customer::GetName() const {
 	return m_name;
+}
+
+void Customer::SetName(const std::string& name) {
+	m_name = name;
 }
 
 void Customer::AddRental(Rental& rental) {

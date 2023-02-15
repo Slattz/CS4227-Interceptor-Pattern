@@ -1,21 +1,21 @@
 #include <thread>
-#include "Dispatcher.h"
+#include "CustomerDispatcher.h"
 
-Dispatcher::Dispatcher() {
+CustomerDispatcher::CustomerDispatcher() {
 
 }
 
-Dispatcher::~Dispatcher() {
+CustomerDispatcher::~CustomerDispatcher() {
 	const std::lock_guard<std::mutex> lock(m_mutex);
 	m_interceptors.clear();
 }
 
-Dispatcher& Dispatcher::GetInstance() {
-    static Dispatcher instance;
+CustomerDispatcher& CustomerDispatcher::GetInstance() {
+    static CustomerDispatcher instance;
     return instance;
 }
 
-bool Dispatcher::Register(std::shared_ptr<IInterceptor>& interceptor) {
+bool CustomerDispatcher::Register(std::shared_ptr<ICustomerInterceptor>& interceptor) {
 	const std::lock_guard<std::mutex> lock(m_mutex);
 	for (auto& i : m_interceptors) {
 		if (i == interceptor) { //we dont want the same interceptor twice
@@ -26,7 +26,7 @@ bool Dispatcher::Register(std::shared_ptr<IInterceptor>& interceptor) {
 	return true;
 }
 
-bool Dispatcher::Remove(std::shared_ptr<IInterceptor>& interceptor) {
+bool CustomerDispatcher::Remove(std::shared_ptr<ICustomerInterceptor>& interceptor) {
 	const std::lock_guard<std::mutex> lock(m_mutex);
 	for (auto itr = m_interceptors.begin(); itr != m_interceptors.end(); itr++) {
 		if (*itr == interceptor) { //we dont want the same interceptor twice
@@ -37,17 +37,17 @@ bool Dispatcher::Remove(std::shared_ptr<IInterceptor>& interceptor) {
 	return false;
 }
 
-void Dispatcher::Dispatch() {
+void CustomerDispatcher::DispatchOnCustomerAdded(const CustomerContextObject& contextObject) {
 	if (!m_interceptors.empty()) {
-		std::vector<std::shared_ptr<IInterceptor>> cloned;
-	
+		std::vector<std::shared_ptr<ICustomerInterceptor>> cloned;
+
 		{
 			const std::lock_guard<std::mutex> lock(m_mutex);
 			cloned = m_interceptors;
 		}
 
 		for (auto& i : cloned) {
-			i->EventCallback();
+			i->OnCustomerAdded(contextObject);
 		}
 	}
 }

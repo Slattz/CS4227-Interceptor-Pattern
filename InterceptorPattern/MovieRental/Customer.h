@@ -6,8 +6,9 @@
 class Customer
 {
 public:
-	Customer(std::string name);
+	Customer(const std::string& name);
 	std::string GetName() const;
+	void SetName(const std::string& name);
 	void AddRental(Rental& rental);
 	std::string Statement() const;
 	std::string HtmlStatement() const;

@@ -39,7 +39,13 @@
     <ClCompile Include="MovieRental\Rental.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Interceptor\Dispatcher.cpp">
+    <ClCompile Include="Interceptor\CustomerDispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomerLogInterceptor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,10 +74,19 @@
     <ClInclude Include="MovieRental\Rental.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interceptor\IInterceptor.h">
+    <ClInclude Include="Interceptor\ICustomerInterceptor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Interceptor\Dispatcher.h">
+    <ClInclude Include="Interceptor\CustomerDispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomerLogInterceptor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Interceptor\CustomerContextObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

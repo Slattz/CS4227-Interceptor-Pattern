@@ -104,6 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./Interceptor; ./MovieRental</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -118,6 +119,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>./Interceptor; ./MovieRental</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +129,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Interceptor\Dispatcher.cpp" />
+    <ClCompile Include="CustomerLogInterceptor.cpp" />
+    <ClCompile Include="Interceptor\CustomerDispatcher.cpp" />
     <ClCompile Include="MovieRental\ChildrensPrice.cpp" />
     <ClCompile Include="MovieRental\Customer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -136,10 +139,12 @@
     <ClCompile Include="MovieRental\Price.cpp" />
     <ClCompile Include="MovieRental\RegularPrice.cpp" />
     <ClCompile Include="MovieRental\Rental.cpp" />
+    <ClCompile Include="Framework.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Interceptor\Dispatcher.h" />
-    <ClInclude Include="Interceptor\IInterceptor.h" />
+    <ClInclude Include="Interceptor\CustomerContextObject.h" />
+    <ClInclude Include="Interceptor\CustomerDispatcher.h" />
+    <ClInclude Include="Interceptor\ICustomerInterceptor.h" />
     <ClInclude Include="MovieRental\ChildrensPrice.h" />
     <ClInclude Include="MovieRental\Customer.h" />
     <ClInclude Include="MovieRental\Movie.h" />
@@ -148,6 +153,8 @@
     <ClInclude Include="MovieRental\Price.h" />
     <ClInclude Include="MovieRental\RegularPrice.h" />
     <ClInclude Include="MovieRental\Rental.h" />
+    <ClInclude Include="Framework.h" />
+    <ClInclude Include="CustomerLogInterceptor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
