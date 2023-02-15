@@ -15,7 +15,7 @@ CustomerDispatcher& CustomerDispatcher::GetInstance() {
     return instance;
 }
 
-bool CustomerDispatcher::Register(std::shared_ptr<ICustomerInterceptor>& interceptor) {
+bool CustomerDispatcher::Register(ICustomerInterceptor* interceptor) {
 	const std::lock_guard<std::mutex> lock(m_mutex);
 	for (auto& i : m_interceptors) {
 		if (i == interceptor) { //we dont want the same interceptor twice
@@ -26,7 +26,7 @@ bool CustomerDispatcher::Register(std::shared_ptr<ICustomerInterceptor>& interce
 	return true;
 }
 
-bool CustomerDispatcher::Remove(std::shared_ptr<ICustomerInterceptor>& interceptor) {
+bool CustomerDispatcher::Remove(ICustomerInterceptor* interceptor) {
 	const std::lock_guard<std::mutex> lock(m_mutex);
 	for (auto itr = m_interceptors.begin(); itr != m_interceptors.end(); itr++) {
 		if (*itr == interceptor) { //we dont want the same interceptor twice

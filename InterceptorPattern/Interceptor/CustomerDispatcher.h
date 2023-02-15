@@ -17,8 +17,8 @@ public:
 	inline auto end() const { return m_interceptors.end(); }
 
 
-	bool Register(std::shared_ptr<ICustomerInterceptor>& interceptor);
-	bool Remove(std::shared_ptr<ICustomerInterceptor>& interceptor);
+	bool Register(ICustomerInterceptor* interceptor);
+	bool Remove(ICustomerInterceptor* interceptor);
 	void DispatchOnCustomerAdded(const CustomerContextObject& contextObject);
 
 private:
@@ -26,5 +26,5 @@ private:
 	~CustomerDispatcher();
 
 	std::mutex m_mutex;
-	std::vector<std::shared_ptr<ICustomerInterceptor>> m_interceptors;
+	std::vector<ICustomerInterceptor*> m_interceptors;
 };
