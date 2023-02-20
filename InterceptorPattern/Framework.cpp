@@ -24,3 +24,15 @@ std::shared_ptr<Customer> Framework::AddCustomer(const std::string customerName)
 	m_customers.push_back(customer);
 	return customer;
 }
+
+bool Framework::RemoveCustomer(std::shared_ptr<Customer>& customer) {
+	for (auto i = m_customers.begin(); i != m_customers.end(); i++) {
+		if (i->get() == customer.get()) {
+			CustomerContextObject object(customer);
+			CustomerDispatcher::GetInstance().DispatchOnCustomerRemoved(object);
+			m_customers.erase(i);
+			return true;
+		}
+	}
+	return false;
+}

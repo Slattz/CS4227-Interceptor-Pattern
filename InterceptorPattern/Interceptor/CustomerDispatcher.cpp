@@ -51,3 +51,18 @@ void CustomerDispatcher::DispatchOnCustomerAdded(const CustomerContextObject& co
 		}
 	}
 }
+
+void CustomerDispatcher::DispatchOnCustomerRemoved(const CustomerContextObject& contextObject) {
+	if (!m_interceptors.empty()) {
+		std::vector<ICustomerInterceptor*> cloned;
+
+		{
+			const std::lock_guard<std::mutex> lock(m_mutex);
+			cloned = m_interceptors;
+		}
+
+		for (auto& i : cloned) {
+			i->OnCustomerRemoved(contextObject);
+		}
+	}
+}

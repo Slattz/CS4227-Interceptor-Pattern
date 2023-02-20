@@ -20,6 +20,7 @@ public:
 	bool Register(ICustomerInterceptor* interceptor);
 	bool Remove(ICustomerInterceptor* interceptor);
 	void DispatchOnCustomerAdded(const CustomerContextObject& contextObject);
+	void DispatchOnCustomerRemoved(const CustomerContextObject& contextObject);
 
 private:
 	CustomerDispatcher();

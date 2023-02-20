@@ -9,6 +9,8 @@ void frameworkThread() {
     std::cout << "Adding Customer To Framework..." << std::endl;
     std::shared_ptr<Customer> customer = framework.AddCustomer("Shane Slattery");
     std::cout << "New Customer Name: " << customer->GetName() << std::endl;
+    framework.RemoveCustomer(customer);
+    std::cout << "Customer Removed!" << std::endl;
 }
 
 int main() {
