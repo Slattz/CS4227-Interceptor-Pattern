@@ -1,8 +1,7 @@
 #pragma once
 #include <string>
-#include <iostream>
 #include <memory>
-#include "Customer.h"
+#include "../MovieRental/Customer.h"
 
 class CustomerContextObject {
 public:
